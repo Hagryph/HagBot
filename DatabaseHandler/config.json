@@ -1,0 +1,97 @@
+{
+  "mode": "master",
+  "database": "postgres",
+  "master": {
+    "host": "localhost",
+    "port": 8000
+  },
+  "slave": {
+    "host": "localhost",
+    "port": 8001,
+    "minimum_pool_size": 20,
+    "maximum_pool_size": 100
+  },
+  "api": {
+    "host": "localhost",
+    "port": 8002
+  },
+  "databases": [
+    {
+      "name": "twitch",
+      "config": {
+        "host": "localhost",
+        "port": 5432,
+        "database": "twitch",
+        "user": "postgres",
+        "password": "ttldlTTR3hab",
+        "minimum_pool_size": 20,
+        "maximum_pool_size": 100
+      },
+      "tables": [
+        {
+          "name": "accounts",
+          "columns": {
+            "id": "INTEGER",
+            "username": "TEXT",
+            "access_token": "TEXT",
+            "refresh_token": "TEXT",
+            "is_active": "INTEGER"
+          },
+          "primary_key": [ "id" ]
+        },
+        {
+          "name": "config",
+          "columns": {
+            "id": "INTEGER",
+            "greeting_enabled": "INTEGER"
+          },
+          "primary_key": [ "id" ],
+          "foreign_keys": {
+            "id": {
+              "table": "accounts",
+              "column_name": "id"
+            }
+          }
+        },
+        {
+          "name": "sessions",
+          "columns": {
+            "id": "INTEGER",
+            "session_key": "TEXT",
+            "data": "TEXT"
+          },
+          "primary_key": [ "id" ],
+          "foreign_keys": {
+            "id": {
+              "column_name": "id",
+              "table": "accounts"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "licenses",
+      "config": {
+        "host": "localhost",
+        "port": 5432,
+        "database": "licenses",
+        "user": "postgres",
+        "password": "ttldlTTR3hab",
+        "minimum_pool_size": 1,
+        "maximum_pool_size": 5
+      },
+      "tables": [
+        {
+          "name": "users",
+          "columns": {
+            "discord_tag": "TEXT",
+            "license_key": "TEXT",
+            "expiration_date": "TIMESTAMP"
+          },
+          "primary_key": [ "discord_tag" ]
+        }
+      ]
+    }
+  ]
+}
