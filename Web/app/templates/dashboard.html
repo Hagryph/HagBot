@@ -1,0 +1,153 @@
+{% load formtags %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HagBot Configuration Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://hagbot.de/static/style.css">
+    <link rel="stylesheet" href="https://hagbot.de/static/sidebar.css">
+    <script src="https://hagbot.de/static/sidebar.js"></script>
+    <script src="https://hagbot.de/static/database-table.js"></script>
+    <script src="https://hagbot.de/static/chat-log.js"></script>
+    <script src="https://hagbot.de/static/profile-button.js"></script>
+    <script src="https://hagbot.de/static/faq.js" type="module"></script>
+    <script src="https://hagbot.de/static/commands.js" type="module"></script>
+</head>
+<body>
+    <input type="checkbox" class="sidebar-collapse-checkbox" />
+    <label for="sidebar-collapse-checkbox" id="collapse-button" class="collapse-button">≡</label>
+    <div class="sidebar">
+        <div class="logo"></div>
+        <label class="collapse-button" for="sidebar-collapse-checkbox" id="collapse-button-sidebar">≡</label>
+        <a href="https://hagbot.de">Home</a>
+        {% if show_admin_area %}
+        <a href="#" data-section="admin-area">Admin Area</a>
+        {% endif %}
+        <a href="#" data-section="general" class="active">General</a>
+        <a href="#" data-section="greeting">Greeting</a>
+        <a href="#" data-section="moderation">Moderation</a>
+        <a href="#" data-section="faq">FAQ</a>
+        <a href="#" data-section="custom-commands">Custom Commands</a>
+        <a href="#" data-section="chat-log">Chat Log</a>
+        <a href="#" data-section="music">Music</a>
+    </div>
+
+    {% if show_admin_area %}
+    <div class="sidebar" id="extension" data-section="admin-area">
+        <a href="#" class="active">Database Tables</a>
+    </div>
+    {% endif %}
+
+    <div id="profile-button">
+        <div id="avatar" class="connected" style="background-image: url({{ avatar_link }});"></div>
+        <div id="dropdown-menu" class="hidden">
+            <div class="menu-item" id="header">
+                <img src="{{ avatar_link }}">
+                <span>{{ username }}</span>
+            </div>
+            <div class="menu-item" id="header" name="connection-status">Chatbot is connected</div>
+            <b class="hr"></b>
+            <div class="menu-item">Logout</div>
+        </div>
+    </div>
+
+    {% if show_admin_area %}
+    <div class="section" id="admin-area">
+        <h1>Admin Area</h1>
+        <div class="section" id="database-table">
+            <div class="tab-nav">
+                <table>
+                    <tbody>
+                        <tr>
+                            {% for table in tables %}
+                            <th><a href="#" data-table-id="{{ forloop.counter }}">{{ table.name }}</a></th>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {% for table in tables %}
+            <div class="table-section" id="table-{{ forloop.counter }}">
+                <div class="current-table-name">Current Table: {{ table.name }}</div>
+                <div class="scrollable">
+                    <table>
+                        <thead>
+                            <tr>
+                                {% for column in table.columns %}
+                                <th>{{ column }}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in table.rows %}
+                            <tr>
+                                {% for value in row %}
+                                <td>{{ value }}</td>
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="section" id="general">
+        <h1>General</h1>
+        {% form_start "general" %}
+        {% if error_message %}
+        <div class="error-message">{{ error_message }}</div>
+        {% endif %}
+        <div class="text-field-group">
+            <label for="streamer_name" class="text-field-label">Streamer Name</label>
+            <input type="text" class="text-field" name="streamer_name" value="{{ username }}" disabled required>
+        </div>
+        {% form_end "general" %}
+    </div>
+
+    <div class="section" id="greeting">
+        <h1>Greeting</h1>
+    </div>
+
+    <div class="section" id="moderation">
+        <h1>Moderation</h1>
+    </div>
+
+    <div class="section" id="faq">
+        <h1>FAQ</h1>
+        {% form_start "question" %}
+        <input type="checkbox" name="enabled" {% if faq_enabled %}checked{% endif %}>
+        <div class="questions-container">
+            <button id="new-question" type="button">New Question</button>
+        </div>
+        {% form_end "question" %}
+    </div>
+
+    <div class="section" id="custom-commands">
+        <h1>Custom Commands</h1>
+        {% form_start "command" %}
+        <input type="checkbox" name="enabled" {% if custom_commands_enabled %}checked{% endif %}>
+        <div class="commands-container">
+            <button id="new-command" type="button">New Command</button>
+        </div>
+        {% form_end "command" %}
+    </div>
+
+    <div class="section" id="chat-log">
+        <h1>Chat Log</h1>
+        <div class="scrollable">
+            <div class="chat-log-container">
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="music">
+        <h1>Music</h1>
+    </div>
+</body>
+</html>

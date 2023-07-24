@@ -1,0 +1,617 @@
+@media (prefers-color-scheme: light) {
+    body {
+        --body: #fff;
+        --text-default: #333;
+        --text-secondary: #555;
+        --scrollbar: #f5f5f5;
+        --scrollbar-secondary: #ccc;
+        --scrollbar-hover: #aaa;
+        --scrollbar-active: #ccc;
+        --scrollbar-track-hover: #ddd;
+        --checkbox-dot-color: #fff;
+        --checkbox-inner-color: #0071e3;
+        --checkbox-inner-color-after: #000;
+        --button: #ddd;
+        --button-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+        --table-header: #f5f5f5;
+        --table-header-color: var(--text-default);
+        --current-table-color: #666;
+        --chatlog: #fff;
+        --time: #666;
+        --drop-down: #efeff1;
+        --drop-down-color: #1f1f23;
+        --menu-item: #fff;
+        --menu-item-header: #333;
+        --button-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+        --checkbox-primary-shadow: rgba(0, 0, 0, 0.15);
+        --checkbox-secondary-shadow: rgba(255, 255, 255, 0.15);
+    }
+}
+
+:root {
+    --error: #ff0000;
+    --connected: #00ff00;
+    --body: #000;
+    --text-default: #f5f5f7;
+    --text-secondary: #86868b;
+    --scrollbar: #333;
+    --scrollbar-secondary: #666;
+    --scrollbar-hover: #999;
+    --scrollbar-active: #777;
+    --scrollbar-track-hover: #444;
+    --checkbox-dot-color: #000;
+    --checkbox-inner-color: #2a0000;
+    --checkbox-inner-color-after: #f5f5f7;
+    --button: #555;
+    --button-image: linear-gradient(14deg, rgba(135,0,5,1) 5%, rgba(32,7,7,1) 100%);
+    --table-header: #ddd;
+    --table-header-color: #000;
+    --current-table-color: #333;
+    --chatlog: #136c59;
+    --chatlog-secondary: linear-gradient(32deg, rgba(255,149,0,1) 9%, rgba(253,134,29,1) 33%, rgba(253,153,29,1) 64%, rgba(253,77,29,1) 100%);
+    --chatlog-secondary-color: #080808;
+    --time: #bfbfbf;
+    --time-secondary: #1b1b1b;
+    --drop-down: #1f1f23;
+    --drop-down-color: #efeff1;
+    --menu-item: #323239;
+    --menu-item-header: #b9bbbe;
+    --text-field: #9b9b9b;
+    --text-field-primary: #11998e;
+    --text-field-secondary: #38ef7d;
+    --checkbox-primary-shadow: rgba(255, 255, 255, 0.15);
+    --checkbox-secondary-shadow: rgba(0, 0, 0, 0.15);
+    --button-shadow: #1a0000 0 15px 30px -5px;
+    --chat-message-shadow: 0 0 1rem rgba(0, 0, 0, 0.075), 0rem 0.5rem 0.5rem -0.5rem rgba(0, 0, 0, 0.1);
+    --drop-down-shadow: rgba(0,0,0,0.2);
+    --overlay-shadow: rgba(0,0,0,0.3);
+    --half-button-width: 48%;
+    --half-button-margin-right: 4%;
+    --transition-duration: 300ms;
+    --fast-transition-duration: 200ms;
+    --font-style: "Rod", sans-serif;
+}
+
+body {
+    background-color: var(--body);
+    font-family: var(--font-style);
+    color: var(--text-default);
+}
+
+a {
+    color: var(--text-default);
+}
+
+@keyframes bar {
+
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 200%;
+    }
+}
+
+.hr {
+    width: 100%;
+    height: 1px;
+    display: block;
+    position: relative;
+    margin-bottom: 0em;
+    padding: 2em 0;
+}
+
+    .hr:after, .hr:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 50%;
+        left: 0;
+    }
+
+    .hr:before {
+        background: linear-gradient( 90deg, $bg 0%, $bg 50%, transparent 50%, transparent 100% );
+        background-size: 15px;
+        background-position: center;
+        z-index: 1;
+    }
+
+    .hr:after {
+        transition: opacity 0.3s ease, animation 0.3s ease;
+        background: linear-gradient( to right, #62efab 5%, #F2EA7D 15%, #F2EA7D 25%, #FF8797 35%, #FF8797 45%, #e1a4f4 55%, #e1a4f4 65%, #82fff4 75%, #82fff4 85%, #62efab 95%);
+        background-size: 200%;
+        background-position: 0%;
+        animation: bar 15s linear infinite;
+    }
+
+.error-message {
+    color: var(--error);
+    font-weight: bold;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: var(--scrollbar);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-secondary);
+    border-radius: 4px;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--scrollbar-hover);
+    }
+
+    ::-webkit-scrollbar-thumb:active {
+        background-color: var(--scrollbar-active);
+    }
+
+::-webkit-scrollbar-track {
+    background-color: var(--scrollbar);
+}
+
+    ::-webkit-scrollbar-track:hover {
+        background-color: var(--scrollbar-track-hover);
+    }
+
+scrollbar {
+    width: 8px;
+    background-color: var(--scrollbar);
+}
+
+scrollbar-thumb {
+    background-color: var(--scrollbar-secondary);
+    border-radius: 4px;
+}
+
+    scrollbar-thumb:hover {
+        background-color: var(--scrollbar-hover);
+    }
+
+    scrollbar-thumb:active {
+        background-color: var(--scrollbar-active);
+    }
+
+scrollbar-track {
+    background-color: var(--scrollbar);
+}
+
+    scrollbar-track:hover {
+        background-color: var(--scrollbar-track-hover);
+    }
+
+input[type=text] {
+    font-family: var(--font-style);
+}
+
+.section {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, 0);
+    width: 70%;
+    display: none;
+}
+
+    .section .form-container {
+        max-width: 800px;
+        margin: 0 auto;
+        border: 1px solid var(--scrollbar-track-hover);
+    }
+
+        .section .form-container form {
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+            .section .form-container form input[type="checkbox"] {
+                -webkit-appearance: none;
+                outline: none;
+                position: relative;
+                height: 40px;
+                width: 80px;
+                border: 2.5px solid var(--body);
+                border-radius: 20px;
+                cursor: pointer;
+                box-shadow: -4px -2px 4px 0px var(--checkbox-primary-shadow), 4px 2px 6px 0px var(--checkbox-secondary-shadow), inset -2px -2px 2px 0px var(--checkbox-primary-shadow), inset 2px 2px 2px 0px var(--checkbox-secondary-shadow);
+            }
+
+                .section .form-container form input[type="checkbox"]::before {
+                    content: "";
+                    height: 25px;
+                    width: 25px;
+                    background-color: var(--checkbox-dot-color);
+                    position: absolute;
+                    margin: auto;
+                    top: 0;
+                    left: 7.5px;
+                    bottom: 0;
+                    border-radius: 50%;
+                    box-shadow: -4px -2px 4px 0px var(--checkbox-primary-shadow), 4px 2px 6px 0px var(--checkbox-secondary-shadow);
+                    transition: 0.15s;
+                }
+
+                .section .form-container form input[type="checkbox"]::after {
+                    content: "Off";
+                    position: absolute;
+                    font-size: 13px;
+                    top: 10px;
+                    right: 12.5px;
+                    color: var(--text-secondary);
+                    font-family: "SF Pro Text", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+                    font-weight: 400;
+                    letter-spacing: 0.004em;
+                }
+
+                .section .form-container form input[type="checkbox"]:checked {
+                    background: var(--checkbox-inner-color);
+                    box-shadow: -4px -2px 4px 0px var(--checkbox-primary-shadow), 4px 2px 6px 0px var(--checkbox-secondary-shadow), inset -2px -2px 2px 0px var(--checkbox-primary-shadow), inset 2px 2px 2px 0px var(--checkbox-secondary-shadow);
+                }
+
+                    .section .form-container form input[type="checkbox"]:checked::before {
+                        left: 42.5px;
+                        box-shadow: none;
+                    }
+
+                    .section .form-container form input[type="checkbox"]:checked::after {
+                        content: "On";
+                        left: 12.5px;
+                        color: var(--checkbox-inner-color-after);
+                    }
+
+            .section .form-container form .text-field-group {
+                position: relative;
+                width: 100%;
+                padding: 12px 0;
+                margin: 8px 0;
+                color: var(--text-default);
+            }
+
+                .section .form-container form .text-field-group .text-field {
+                    width: 100%;
+                    border: 0;
+                    border-bottom: 2px solid var(--text-field);
+                    outline: 0;
+                    font-size: 1.3rem;
+                    color: var(--text-default);
+                    padding: 7px 0;
+                    background: transparent;
+                    transition: border-image var(--transition-duration);
+                }
+
+                    .section .form-container form .text-field-group .text-field::placeholder {
+                        color: transparent;
+                    }
+
+                    .section .form-container form .text-field-group .text-field:placeholder-shown ~ .text-field-label {
+                        font-size: 1.3rem;
+                        cursor: text;
+                        top: 20px;
+                    }
+
+                .section .form-container form .text-field-group .text-field-label {
+                    position: absolute;
+                    top: 0;
+                    display: block;
+                    transition: 0.2s;
+                    font-size: 1rem;
+                    color: var(--text-field);
+                }
+
+                .section .form-container form .text-field-group .text-field:focus {
+                    padding-bottom: 6px;
+                    font-weight: 700;
+                    border-width: 3px;
+                    border-image: linear-gradient(to right, var(--text-field-primary), var(--text-field-secondary)) 1;
+                    border-image-slice: 1;
+                }
+
+                    .section .form-container form .text-field-group .text-field:focus ~ .text-field-label {
+                        position: absolute;
+                        top: 0;
+                        display: block;
+                        transition: var(--fast-transition-duration);
+                        font-size: 1rem;
+                        color: var(--text-field-primary);
+                        font-weight: 700;
+                    }
+
+                .section .form-container form .text-field-group .text-field:required, .section .form-container form .text-field-group .text-field:invalid {
+                    box-shadow: none;
+                }
+
+            .section .form-container form input[type="submit"]:active, .section .form-container form input[type="submit"]:hover,
+            .section .form-container form button:active, .section .form-container form button:hover {
+                outline: 0;
+                background-image: var(--button-image);
+                box-shadow: var(--button-shadow);
+                transition: var(--transition-duration);
+            }
+
+            .section .form-container form input[type="submit"],
+            .section .form-container form button {
+                background-color: var(--button);
+                border: 0;
+                border-radius: 8px;
+                box-sizing: border-box;
+                color: var(--text-default);
+                font-family: Phantomsans, sans-serif;
+                font-size: 20px;
+                line-height: 1em;
+                width: 100%;
+                padding: 14px 20px;
+                margin: 8px 0;
+                text-decoration: none;
+                -webkit-user-select: none;
+                user-select: none;
+                touch-action: manipulation;
+                white-space: nowrap;
+                cursor: pointer;
+            }
+
+    .section label {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--text-default);
+    }
+
+    .section h1 {
+        color: var(--text-default);
+        font-size: 72px;
+        font-weight: bold;
+        text-align: center;
+        text-shadow: 2px 2px 4px var(--body);
+        letter-spacing: 2px;
+        font-family: 'Rock Salt', cursive;
+    }
+
+    .section .scrollable {
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+
+    .section#general {
+        display: block;
+    }
+
+    .section#admin-area table {
+        width: 100vw;
+        border-collapse: collapse;
+    }
+
+    .section#admin-area td, .section#admin-area th {
+        border: 1px solid var(--body-color);
+        text-align: left;
+        padding: 8px;
+    }
+
+    .section#admin-area th {
+        background-color: var(--table-header);
+        font-weight: bold;
+        color: var(--table-header-color);
+        text-align: center;
+    }
+
+    .section#admin-area tr:nth-child(odd) {
+        background-color: var(--scrollbar);
+    }
+
+    .section#admin-area tr:nth-child(even) {
+        background-color: var(--body);
+    }
+
+    .section#admin-area .tab-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .section#admin-area .tab-nav th {
+            text-align: center;
+            padding: 8px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+            .section#admin-area .tab-nav th:hover,
+            .section#admin-area .tab-nav th.active {
+                border: 1px solid var(--body);
+            }
+
+        .section#admin-area .tab-nav a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+    .section#admin-area .current-table-name {
+        font-size: 18px;
+        color: var(--current-table-color);
+        background-color: var(--table-header);
+        font-weight: bold;
+        border-top: 1px solid var(--table-header);
+        padding: 8px;
+    }
+
+    .section .chat-log-container .chat-message {
+        box-sizing: border-box;
+        padding: 0.5rem 1rem;
+        margin: 0.5rem;
+        background: var(--chatlog);
+        color: var(--text-default);
+        border-radius: 20px;
+        min-height: 2.25rem;
+        max-width: 66vw;
+        width: fit-content;
+        box-shadow: var(--chat-message-shadow);
+        word-wrap: break-word;
+    }
+
+        .section .chat-log-container .chat-message .time, .section .chat-log-container .chat-message .user {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .section .chat-log-container .chat-message .time {
+            margin-right: 7px;
+            font-size: 0.8em;
+            color: var(--time);
+        }
+
+        .section .chat-log-container .chat-message .user {
+            margin-right: 10px;
+        }
+
+        .section .chat-log-container .chat-message .message {
+            flex: 1;
+        }
+
+        .section .chat-log-container .chat-message.hagbot {
+            margin: 0.5rem 0.5rem 0.5rem auto;
+            background: var(--chatlog-secondary);
+            color: var(--chatlog-secondary-color);
+        }
+
+            .section .chat-log-container .chat-message.hagbot .time {
+                color: var(--time-secondary);
+            }
+
+            .section .chat-log-container .chat-message.hagbot a {
+                color: var(--chatlog-secondary-color);
+            }
+
+    .section#faq .questions-container .question-container .answers-button,
+    .section#faq .questions-container .question-container .delete-button,
+    .section#custom-commands .commands-container .command-container .responses-button,
+    .section#custom-commands .commands-container .command-container .aliases-button {
+        width: var(--half-button-width);
+    }
+
+    .section#faq .questions-container .question-container .answers-button,
+    .section#custom-commands .commands-container .command-container .responses-button {
+        margin-right: var(--half-button-margin-right);
+    }
+
+#profile-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 9998;
+}
+
+    #profile-button .hr {
+        padding: 2px;
+    }
+
+    #profile-button #avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid var(--error);
+        background-size: cover;
+    }
+
+        #profile-button #avatar.connected {
+            border: 2px solid var(--connected);
+        }
+
+    #profile-button #dropdown-menu {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+        background-color: var(--drop-down);
+        color: var(--drop-down-color);
+        box-shadow: 0px 8px 16px 0px var(--drop-down-shadow);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+        cursor: auto;
+    }
+
+        #profile-button #dropdown-menu:not(.hidden) {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #profile-button #dropdown-menu .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            font-size: 14px;
+            transition: background-color 0.2s ease-in-out;
+            cursor: auto;
+        }
+
+            #profile-button #dropdown-menu .menu-item:not(#header) {
+                cursor: pointer;
+            }
+
+                #profile-button #dropdown-menu .menu-item:not(#header):hover {
+                    background-color: var(--menu-item);
+                }
+
+            #profile-button #dropdown-menu .menu-item img {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+            }
+
+            #profile-button #dropdown-menu .menu-item span {
+                margin-right: 10px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            #profile-button #dropdown-menu .menu-item#header {
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                font-size: 14px;
+                color: var(--menu-item-header);
+                transition: background-color 0.2s ease-in-out;
+                cursor: default;
+            }
+
+                #profile-button #dropdown-menu .menu-item#header img {
+                    width: 30px;
+                    height: 30px;
+                    margin-right: 10px;
+                    border-radius: 50%;
+                }
+
+                #profile-button #dropdown-menu .menu-item#header span {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-shadow);
+    z-index: 10000;
+}
+
+    .overlay .delete-button {
+        width: 100% !important;
+    }
+
+    .overlay .save-button, .overlay .cancel-button {
+        width: var(--half-button-width) !important;
+    }
+
+    .overlay .save-button {
+        margin-right: var(--half-button-margin-right) !important;
+    }

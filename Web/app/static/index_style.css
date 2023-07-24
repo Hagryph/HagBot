@@ -1,0 +1,55 @@
+body {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Add styles for the logo container */
+.logo-container {
+    position: relative;
+    text-align: center;
+    padding: 20px 0;
+}
+
+    /* Style the logo */
+    .logo-container .logo {
+        width: auto;
+        height: 200px;
+    }
+
+    /* Style the header text */
+    .logo-container .header-text {
+        margin-top: 10px;
+        font-size: 3em;
+        font-weight: bold;
+        text-align: center;
+        text-shadow: 2px 2px 4px #000000;
+        letter-spacing: 2px;
+        font-family: 'Rock Salt', cursive;
+    }
+
+/* The parent container for the images and text */
+.image-container {
+    position: relative;
+    width: 100%;
+    opacity: 0; /* Make the images initially invisible */
+}
+
+    /* Style the images */
+    .image-container img {
+        width: 50%;
+        height: auto;
+    }
+
+    /* Position the captions to the right of the images */
+    .image-container .caption {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 20px;
+    }
+
+    /* Add a transition effect when the image becomes visible */
+    .image-container.visible {
+        opacity: 1;
+        transition: opacity 0.5s;
+    }

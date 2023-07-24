@@ -1,0 +1,5 @@
+<div class="form-container">
+    <div class="scrollable">
+        <form method="post" name="{{ form_name }}-form">
+            {% csrf_token %}
+            <input type="hidden" name="form-name" value="{{ form_name }}">

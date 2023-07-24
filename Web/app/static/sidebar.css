@@ -1,0 +1,139 @@
+@media (prefers-color-scheme: dark) {
+    .sidebar {
+        background-color: #333333 !important;
+        color: #cccccc !important;
+    }
+
+        .sidebar a, .sidebar .collapse-button {
+            color: #cccccc !important;
+        }
+
+            .sidebar a:hover, .sidebar .collapse-button:hover {
+                background-color: #555555 !important;
+                color: #00bfff !important;
+            }
+
+            .sidebar a.active, .sidebar .collapse-button.active {
+                background-color: #00bfff !important;
+                color: #ffffff !important;
+            }
+
+        .sidebar .logo {
+            border: 10px solid #ffffff !important;
+        }
+
+        .sidebar .collapse-button {
+            color: #cccccc !important;
+        }
+
+    .collapse-button {
+        color: #cccccc !important;
+    }
+
+        .collapse-button:hover {
+            color: #00bfff !important;
+        }
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333333;
+    color: #cccccc;
+    overflow-x: hidden;
+    white-space: nowrap;
+    transition: width 0.3s ease-in-out 0.3s;
+    z-index: 9999;
+}
+
+    .sidebar#extension {
+        display: none;
+        left: 250px;
+        transition-delay: 0s;
+    }
+
+    .sidebar a, .sidebar .collapse-button {
+        display: block;
+        padding: 16px;
+        color: #cccccc;
+        text-decoration: none;
+    }
+
+        .sidebar a:hover, .sidebar .collapse-button:hover {
+            background-color: #555555;
+            color: #00bfff;
+        }
+
+        .sidebar a.active, .sidebar .collapse-button.active {
+            background-color: #00bfff;
+            color: #ffffff;
+        }
+
+    .sidebar .icon {
+        margin-right: 8px;
+    }
+
+    .sidebar .logo {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 10px solid #ffffff;
+        background: url(logo.jpg) no-repeat;
+        background-size: cover;
+        display: block;
+        margin: 15px;
+    }
+
+    .sidebar .collapse-button {
+        position: relative;
+        display: block;
+        padding: 16px;
+        color: #cccccc;
+        text-decoration: none;
+        font-size: 24px;
+        cursor: pointer;
+        height: auto;
+        width: auto;
+        z-index: inherit;
+    }
+
+.sidebar-collapse-checkbox {
+    display: none;
+}
+
+.collapse-button {
+    position: absolute;
+    display: none;
+    padding: 16px;
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 24px;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    transition: color 0.5s ease-in-out;
+}
+
+    .collapse-button:hover {
+        color: #00bfff;
+    }
+
+.collapse-button {
+    z-index: 9997;
+}
+
+.sidebar-collapse-checkbox:checked ~ .sidebar {
+    width: 250px;
+    transition-delay: 0s;
+}
+
+    .sidebar-collapse-checkbox:checked ~ .sidebar#extension {
+        transition-delay: 0.3s;
+    }
+
+.sidebar-collapse-checkbox:not(:checked) ~ .collapse-button {
+    display: block;
+}
